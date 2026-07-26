@@ -1,1 +1,11 @@
+{
+  "lan": "EBENE",
+  "access": [
+    "SCAN",
+    "EDIT",
+    "ENGINE"
+  ],
+  "bridge": "E",
+  "status": "online"
+}
 
