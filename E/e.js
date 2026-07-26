@@ -1,8 +1,12 @@
-// E · EBENE · EDIT · ENGINE
-// SCAN-ENGINE · RESPO
+import { EError } from "./e.error.js";
+import { EMove } from "./e.move.js";
+import { EScan } from "./e.scan.js";
+import { ESignal } from "./e.signal.js";
 
 const E = {
   identity: 0,
+  index: 0,
+
   clusters: [
     "CORE-X6D",
     "CORE-NE6D",
@@ -16,24 +20,26 @@ const E = {
     "USE-UI"
   ],
 
-  move: ["plop", "fade", "null", "next", "plop"],
-  index: 0,
-
-  cycle() {
+  async cycle() {
     const current = this.clusters[this.index];
+    const element = document.getElementById(current);
 
-    // plop
-    this.set(current, "plop");
+    // Echt-Scan
+    const data = await EScan.read("/" + current);
+    const errors = EError.scan(data);
 
-    // fade
-    setTimeout(() => this.set(current, "fade"), 400);
+    // Meldesystem
+    const color = ESignal.color(errors);
+    ESignal.apply(element, color);
 
-    // null
-    setTimeout(() => this.set(current, "null"), 800);
+    // Bewegung
+    EMove.apply(element, "plop");
+    setTimeout(() => EMove.apply(element, "fade"), 400);
+    setTimeout(() => EMove.apply(element, "null"), 800);
 
-    // next
+    // Next
     setTimeout(() => {
-      this.set(current, "");
+      EMove.apply(element, "");
       this.index = (this.index + 1) % this.clusters.length;
 
       this.identity++;
@@ -41,14 +47,9 @@ const E = {
         "IDENTITY: e-" + this.identity;
 
       const next = this.clusters[this.index];
-      this.set(next, "plop");
+      EMove.apply(document.getElementById(next), "plop");
     }, 1200);
-  },
-
-  set(cluster, state) {
-    const el = document.getElementById(cluster);
-    if (el) el.className = "cluster " + state;
   }
 };
 
-setInterval(() => E.cycle(), 1600);
+setInterval(() => E.cycle(), EMove.speed);
