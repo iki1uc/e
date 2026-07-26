@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>e · EBENE · EDIT · ENGINE</title>
+<title>E · EBENE · EDIT · ENGINE · ALLXALL</title>
 
 <style>
   body {
@@ -17,22 +17,13 @@
     transition: opacity 0.4s ease;
   }
 
-  .plop {
-    color:#0f0;
-    opacity:1;
-  }
+  .plop { opacity:1; color:#0f0; }
+  .fade { opacity:0.3; }
+  .null { opacity:0; }
 
-  .fade {
-    opacity:0.2;
-  }
-
-  .null {
-    opacity:0;
-  }
-
-  .err {
-    color:#f00;
-  }
+  .green { color:#0f0; }
+  .yellow { color:#ff0; }
+  .red { color:#f00; }
 
   #identity {
     margin-bottom:20px;
@@ -43,88 +34,58 @@
 </head>
 <body>
 
-<h1>e · EBENE · EDIT · ENGINE</h1>
-
+<h1>E · EBENE · EDIT · ENGINE</h1>
 <div id="identity">IDENTITY: e‑0</div>
 
 <h2>Cluster‑Scan</h2>
 <div id="scan"></div>
 
-<script>
-// ---------------------------
-// 1. Cluster-Liste
-// ---------------------------
-const clusters = [
-  "CORE-X6D",
-  "CORE-NE6D",
-  "CORE-BEN9D",
-  "DATA",
-  "PORTENGINE",
-  "HDFCORE",
-  "HIWORLD",
-  "XENGINEIX",
-  "XENGINEXI",
-  "USE-UI"
-];
+<script type="module">
 
-// ---------------------------
-// 2. Fehler-Liste (Demo)
-// ---------------------------
-const errors = {
-  "CORE-BEN9D": "tmp.room gefunden",
-  "CORE-NE6D": "tmp,room gefunden"
-};
+// ---------------------------------------------------------
+// 1. MODULE LADEN (ALLE 4 + Fehler + Scan + Signal)
+// ---------------------------------------------------------
+import { EError } from "./E/e.error.js";
+import { EMove } from "./E/e.move.js";
+import { EScan } from "./E/e.scan.js";
+import { ESignal } from "./E/e.signal.js";
 
-// ---------------------------
-// 3. HTML erzeugen
-// ---------------------------
-let html = "";
-clusters.forEach(c => {
-  const err = errors[c] ? `<span class='err'>✘ ${errors[c]}</span>` : "✔";
-  html += `<div class='cluster' id='${c}'>${c} ${err}</div>`;
-});
-document.getElementById("scan").innerHTML = html;
+// ---------------------------------------------------------
+// 2. E ENGINE
+// ---------------------------------------------------------
+const E = {
+  identity: 0,
+  index: 0,
 
-// ---------------------------
-// 4. Plop-Zyklus
-// plop → fade → null → next → plop
-// ---------------------------
-let index = 0;
-let identityCounter = 0;
+  clusters: [
+    "CORE-X6D",
+    "CORE-NE6D",
+    "CORE-BEN9D",
+    "DATA",
+    "PORTENGINE",
+    "HDFCORE",
+    "HIWORLD",
+    "XENGINEIX",
+    "XENGINEXI",
+    "USE-UI"
+  ],
 
-function cycle() {
-  const current = clusters[index];
+  async cycle() {
+    const current = this.clusters[this.index];
+    const element = document.getElementById(current);
 
-  // 4.1 plop
-  document.getElementById(current).className = "cluster plop";
+    // -----------------------------------------------------
+    // 3. ECHT-SCAN
+    // -----------------------------------------------------
+    const data = await EScan.read("/" + current);
 
-  // 4.2 fade
-  setTimeout(() => {
-    document.getElementById(current).className = "cluster fade";
-  }, 400);
+    // -----------------------------------------------------
+    // 4. FEHLER-ENGINE
+    // -----------------------------------------------------
+    const errors = EError.scan(data);
 
-  // 4.3 null
-  setTimeout(() => {
-    document.getElementById(current).className = "cluster null";
-  }, 800);
-
-  // 4.4 next
-  setTimeout(() => {
-    document.getElementById(current).className = "cluster";
-    index = (index + 1) % clusters.length;
-
-    // Identity erhöhen
-    identityCounter++;
-    document.getElementById("identity").innerText = "IDENTITY: e-" + identityCounter;
-
-    // 4.5 plop next
-    const next = clusters[index];
-    document.getElementById(next).className = "cluster plop";
-  }, 1200);
-}
-
-setInterval(cycle, 1600);
-</script>
-
-</body>
-</html>
+    // -----------------------------------------------------
+    // 5. MELDESYSTEM (rot/gelb/grün)
+    // -----------------------------------------------------
+    const color = ESignal.color(errors);
+    ESignal.apply(element, color
