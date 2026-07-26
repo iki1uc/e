@@ -1,0 +1,43 @@
+[port.load]
+version = 1.0
+type = "loader"
+zero = 0
+
+load.rule = "Lädt gespeicherte DE-Daten, Sequenzen und Systemzustände aus port.save"
+
+load.bind.save   = "port.save"
+load.bind.pq     = "port.PQ0"
+load.bind.ex     = "PQ.EX"
+load.bind.room   = "port.room"
+load.bind.matrix = "port.matrix"
+load.bind.data   = "port.data"
+load.bind.status = "port.status"
+load.bind.team   = "port.team"
+
+load.mode = ["auto","manual","seq","state","vector"]
+
+load.restore.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "seq.current",
+  "seq.history",
+  "room.state",
+  "matrix.state",
+  "team.state"
+]
+
+load.restore.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize"
+]
+
+load.autoload = true
+load.state = "active"
+

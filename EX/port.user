@@ -1,0 +1,59 @@
+[port.user]
+version = 1.0
+type = "user-core"
+zero = 0
+
+user.rule = "Verwaltet Benutzer-Interaktionen, Eingaben, Zustände und Systemzugriffe im DE-System"
+
+user.bind.pq      = "port.PQ0"
+user.bind.ex      = "PQ.EX"
+user.bind.room    = "port.room"
+user.bind.matrix  = "port.matrix"
+user.bind.data    = "port.data"
+user.bind.status  = "port.status"
+user.bind.team    = "port.team"
+user.bind.screen  = "port.screen"
+user.bind.visuals = "port.visuals"
+user.bind.grid    = "port.9x9"
+user.bind.win0    = "port.win0"
+
+user.mode = ["input","control","seq","vector","zone","state","view"]
+
+user.input.types = [
+  "click",
+  "tap",
+  "key",
+  "touch",
+  "drag",
+  "select",
+  "command"
+]
+
+user.actions.core = [
+  "set-axis",
+  "set-vector",
+  "set-zone",
+  "set-title",
+  "refresh-room",
+  "refresh-matrix"
+]
+
+user.actions.seq = [
+  "seq-start",
+  "seq-stop",
+  "seq-next",
+  "seq-prev",
+  "seq-reset"
+]
+
+user.actions.view = [
+  "view-core",
+  "view-seq",
+  "view-vector",
+  "view-zone",
+  "view-status",
+  "view-team",
+  "view-effects"
+]
+
+user.state = "active"

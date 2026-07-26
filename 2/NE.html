@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>NE‑Kernel · EN‑KI</title>
+
+<style>
+body {
+  background:#000;
+  color:#00ccff;
+  font-family:Consolas;
+  margin:0;
+  padding:20px;
+}
+
+h1 {
+  color:#00ccff;
+  margin-bottom:10px;
+}
+
+.block {
+  background:#001122;
+  border:1px solid #003355;
+  padding:15px;
+  margin-bottom:20px;
+}
+
+button {
+  background:#00ccff;
+  color:#000;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  margin-right:10px;
+}
+
+button:hover {
+  background:#33ddff;
+}
+</style>
+</head>
+
+<body>
+
+<h1>NE‑Kernel · EN‑KI</h1>
+
+<div class="block">
+  <h2>EN‑KI Daten</h2>
+  <p><b>GEN:</b> WHY</p>
+  <p><b>Vector:</b> 12e</p>
+  <p><b>Trigger:</b> X</p>
+  <p><b>Valid:</b> DE / EN</p>
+  <p><b>Pfad:</b> D:/EN/</p>
+</div>
+
+<div class="block">
+  <h2>EN‑Pipeline</h2>
+  <pre id="pipelineBox">Noch keine Pipeline ausgeführt.</pre>
+  <button onclick="runPipeline()">Pipeline ausführen</button>
+  <button onclick="runQuadrat()">Quadrat‑Modus (EN²)</button>
+</div>
+
+<div class="block">
+  <h2>Routing</h2>
+  <p>SLI‑Layer: EN öffnet DE und TR</p>
+  <button onclick="route('DE')">→ DA‑Kernel (DE)</button>
+  <button onclick="route('TR')">→ BEN‑Kernel (TR)</button>
+</div>
+
+<script>
+/* EN‑KI Objekt */
+const EN_KI = {
+  gen: "WHY",
+  vector: "12e",
+  trigger: "X",
+  valid: ["DE","EN"],
+  path: "D:/EN/"
+};
+
+/* EN‑Pipeline */
+function runPipeline(){
+  const pipeline = {
+    A:[2,2,3],
+    B:[1,2,3],
+    Pair:[[2,1],[2,2],[3,3]]
+  };
+
+  document.getElementById("pipelineBox").innerText =
+    JSON.stringify(pipeline, null, 2);
+}
+
+/* Quadrat‑Modus */
+function runQuadrat(){
+  const chain = ["WHY","WHY"];
+  document.getElementById("pipelineBox").innerText =
+    "Quadrat‑Modus ausgeführt:\n" + chain.join(" → ");
+}
+
+/* Routing */
+function route(target){
+  if(target === "DE") window.location.href = "DA.html";
+  if(target === "TR") window.location.href = "BEN.html";
+}
+</script>
+
+</body>
+</html>
+

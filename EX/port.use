@@ -1,0 +1,17 @@
+[use0]
+version = 1.0
+type = "use-kernel"
+zero = 0
+
+use.rule = "Definiert Nutzung von Modulen im Auftrag-Cluster"
+use.map = [
+  "team0",
+  "edit0",
+  "grab0",
+  "fix0",
+  "visuals0"
+]
+
+use.bind.status = "status0"
+use.bind.room   = "port.room"
+

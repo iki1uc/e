@@ -1,0 +1,12 @@
+[anker0]
+version = 1.0
+type = "anchor-kernel"
+zero = 0
+
+anker.rule = "Setzt unveränderbare System-Anker für EX und ROM"
+anker.cluster = ["EX", "ROM", "raum-field"]
+
+anker.bind.ex   = "EX"
+anker.bind.rom  = "rom0"
+anker.bind.room = "port.room"
+

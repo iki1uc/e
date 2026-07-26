@@ -1,0 +1,49 @@
+[port.win]
+version = 1.0
+type = "window-core"
+zero = 0
+
+win.rule = "Verwaltet DE-Fenster, Ansichten, Layer und Systemanzeigen"
+
+win.bind.screen = "port.screen"
+win.bind.room   = "port.room"
+win.bind.matrix = "port.matrix"
+win.bind.data   = "port.data"
+win.bind.status = "port.status"
+win.bind.team   = "port.team"
+win.bind.pq     = "port.PQ0"
+win.bind.ex     = "PQ.EX"
+
+win.mode = ["auto","manual","layer","seq","state"]
+
+win.layers = [
+  "core",
+  "seq",
+  "vector",
+  "zone",
+  "status",
+  "team"
+]
+
+win.default.layer = "core"
+
+win.view.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state"
+]
+
+win.view.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize"
+]
+
+win.state = "active"

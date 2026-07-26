@@ -1,0 +1,50 @@
+[port.9x9]
+version = 1.0
+type = "matrix-grid"
+zero = 0
+
+grid.rule = "9x9-DE-Matrix zur Darstellung von Achse, Vector, Zone und Sequenzzuständen"
+
+grid.size = "9x9"
+grid.axis = "X"
+grid.vector = "6d0"
+grid.zone = "0-20"
+
+grid.bind.pq     = "port.PQ0"
+grid.bind.ex     = "PQ.EX"
+grid.bind.room   = "port.room"
+grid.bind.matrix = "port.matrix"
+grid.bind.data   = "port.data"
+grid.bind.status = "port.status"
+grid.bind.team   = "port.team"
+grid.bind.screen = "port.screen"
+grid.bind.visuals= "port.visuals"
+
+grid.mode = ["auto","seq","vector","zone","state","visual"]
+
+grid.cells.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current",
+  "seq.history"
+]
+
+grid.cells.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+grid.state = "active"
+

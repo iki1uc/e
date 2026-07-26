@@ -1,0 +1,66 @@
+[port.allign]
+version = 1.0
+type = "alignment-engine"
+zero = 0
+
+allign.rule = "Synchronisiert und richtet alle DE-Module, Sequenzen, Vectoren und Zustände präzise aus"
+
+allign.bind.pq      = "port.PQ0"
+allign.bind.ex      = "PQ.EX"
+allign.bind.room    = "port.room"
+allign.bind.matrix  = "port.matrix"
+allign.bind.data    = "port.data"
+allign.bind.status  = "port.status"
+allign.bind.team    = "port.team"
+allign.bind.screen  = "port.screen"
+allign.bind.visuals = "port.visuals"
+allign.bind.grid    = "port.9x9"
+allign.bind.win0    = "port.win0"
+allign.bind.user    = "port.user"
+allign.bind.fit     = "port.fit"
+allign.bind.fix     = "port.fix"
+
+allign.mode = ["auto","manual","seq","vector","zone","state","visual","team","core"]
+
+allign.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+allign.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+allign.actions = [
+  "align-axis",
+  "align-vector",
+  "align-zone",
+  "align-title",
+  "align-room",
+  "align-matrix",
+  "align-team",
+  "align-status",
+  "align-screen",
+  "align-visuals",
+  "align-grid",
+  "align-seq"
+]
+
+allign.autosync = true
+allign.interval = "2s"
+
+allign.state = "active"

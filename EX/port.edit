@@ -1,0 +1,8 @@
+[edit0]
+version = 1.0
+type = "edit-kernel"
+zero = 0
+
+edit.rule = "Setup: definiert wer mit wem arbeitet"
+edit.bind = "status0"
+

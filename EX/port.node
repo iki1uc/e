@@ -1,0 +1,83 @@
+[port.node]
+version = 1.0
+type = "node-core"
+zero = 0
+
+node.rule = "Erstellt DE-Nodes, verwaltet Node-Verbindungen, Node-Status und Node-Datenfluss"
+
+node.bind.pq      = "port.PQ0"
+node.bind.ex      = "PQ.EX"
+node.bind.room    = "port.room"
+node.bind.matrix  = "port.matrix"
+node.bind.data    = "port.data"
+node.bind.status  = "port.status"
+node.bind.team    = "port.team"
+node.bind.screen  = "port.screen"
+node.bind.visuals = "port.visuals"
+node.bind.grid    = "port.9x9"
+node.bind.win0    = "port.win0"
+node.bind.user    = "port.user"
+node.bind.fit     = "port.fit"
+node.bind.fix     = "port.fix"
+node.bind.allign  = "port.allign"
+node.bind.capture = "port.capture"
+node.bind.build   = "port.build"
+node.bind.send    = "port.send"
+node.bind.score   = "port.score"
+node.bind.sync    = "port.sync"
+node.bind.core    = "port.core"
+node.bind.lan     = "port.lan"
+node.bind.api     = "port.api"
+node.bind.host    = "port.host"
+node.bind.boot    = "port.boot"
+node.bind.link    = "port.link"
+node.bind.setup   = "port.setup"
+node.bind.net     = "port.net"
+
+node.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","route","flow","node"]
+
+node.types = [
+  "node-core",
+  "node-room",
+  "node-matrix",
+  "node-team",
+  "node-screen",
+  "node-visual",
+  "node-grid",
+  "node-seq",
+  "node-system"
+]
+
+node.flow = [
+  "node-in",
+  "node-out",
+  "node-sync",
+  "node-update",
+  "node-route",
+  "node-verify"
+]
+
+node.status = [
+  "node.ready",
+  "node.active",
+  "node.idle",
+  "node.error",
+  "node.linked"
+]
+
+node.actions = [
+  "node-init",
+  "node-create",
+  "node-refresh",
+  "node-update",
+  "node-sync",
+  "node-route",
+  "node-connect",
+  "node-verify",
+  "node-complete"
+]
+
+node.autonode = true
+node.interval = "3s"
+
+node.state = "active"

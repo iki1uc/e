@@ -1,0 +1,73 @@
+[port.net]
+version = 1.0
+type = "network-core"
+zero = 0
+
+net.rule = "Verwaltet DE‑Netzwerkkommunikation, interne Verbindungen, Routing, Protokolle und Datenfluss"
+
+net.bind.pq      = "port.PQ0"
+net.bind.ex      = "PQ.EX"
+net.bind.room    = "port.room"
+net.bind.matrix  = "port.matrix"
+net.bind.data    = "port.data"
+net.bind.status  = "port.status"
+net.bind.team    = "port.team"
+net.bind.screen  = "port.screen"
+net.bind.visuals = "port.visuals"
+net.bind.grid    = "port.9x9"
+net.bind.win0    = "port.win0"
+net.bind.user    = "port.user"
+net.bind.fit     = "port.fit"
+net.bind.fix     = "port.fix"
+net.bind.allign  = "port.allign"
+net.bind.capture = "port.capture"
+net.bind.build   = "port.build"
+net.bind.send    = "port.send"
+net.bind.score   = "port.score"
+net.bind.sync    = "port.sync"
+net.bind.core    = "port.core"
+net.bind.lan     = "port.lan"
+net.bind.api     = "port.api"
+net.bind.host    = "port.host"
+net.bind.boot    = "port.boot"
+net.bind.link    = "port.link"
+net.bind.setup   = "port.setup"
+
+net.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","route","flow"]
+
+net.routes = [
+  "net-core",
+  "net-room",
+  "net-matrix",
+  "net-team",
+  "net-screen",
+  "net-visuals",
+  "net-grid",
+  "net-seq",
+  "net-system"
+]
+
+net.flow = [
+  "flow-in",
+  "flow-out",
+  "flow-sync",
+  "flow-update",
+  "flow-route",
+  "flow-verify"
+]
+
+net.actions = [
+  "net-init",
+  "net-refresh",
+  "net-update",
+  "net-sync",
+  "net-route",
+  "net-flow",
+  "net-connect",
+  "net-verify"
+]
+
+net.autonet = true
+net.interval = "3s"
+
+net.state = "active"

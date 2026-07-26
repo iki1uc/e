@@ -1,0 +1,67 @@
+[port.eden]
+version = 1.0
+type    = "eden-port"
+zero    = 0
+
+eden.name     = "EDEN"
+eden.title    = "Elementar Portal System"
+eden.mode     = ["portal","element","glyph","cube","rune","crown","sync"]
+
+# Bindings zu allen EDEN‑Modulen
+eden.bind = [
+  "EDEN.element.glyphs",
+  "EDEN.portal.crown",
+  "EDEN.cube.holo",
+  "EDEN.rune.energy",
+  "EDEN.portal.system",
+  "HI.layer",
+  "screen.room",
+  "port.visuals"
+]
+
+# Element‑Glyphen
+eden.element = {
+  E1 = "water",
+  D  = "fire",
+  E2 = "ice",
+  N  = "steam"
+}
+
+# Portal‑Krone
+eden.crown = {
+  position = "over.gate",
+  glow     = "element.glow",
+  align    = "center"
+}
+
+# Cube‑Hologramm
+eden.cube = {
+  project   = "eden.hologram",
+  rotate.x  = "speed.var",
+  rotate.y  = "speed.var",
+  rotate.z  = "speed.var",
+  pose.time = "1-2s"
+}
+
+# Runen‑Energie
+eden.rune = {
+  form   = "element.rune",
+  glow   = "element.glow",
+  energy = "pulse.ghost"
+}
+
+# Portal‑System
+eden.portal = {
+  layers = [
+    "eden.element.final",
+    "eden.crown.final",
+    "eden.cube.final",
+    "eden.rune.final"
+  ],
+  mode   = ["merge","sync","animate","portal"]
+}
+
+# Output
+eden.output = "eden.port.final"
+eden.state  = "active"
+

@@ -1,0 +1,22 @@
+
+[screen.room]
+version = 1.0
+type = "room-screen"
+zero = 0
+
+room.name     = "DE.HI.hib"
+room.title    = "EDEN Screen Room"
+room.layer    = "visual.portal"
+room.bind     = [
+  "EDEN.element.glyphs",
+  "EDEN.portal.crown",
+  "EDEN.cube.holo",
+  "EDEN.rune.energy",
+  "EDEN.portal.system"
+]
+
+room.mode     = ["screen","portal","eden","hib","visual"]
+room.display  = "eden.portal.system.final"
+
+room.state    = "active"
+room.output   = "screen.room.final"

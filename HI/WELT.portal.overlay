@@ -1,0 +1,15 @@
+[WELT.portal.overlay]
+version = 1.0
+type    = "welt-overlay"
+
+overlay.bind = [
+  "WELT.BT.final",
+  "WELT.HHcube.final",
+  "eden.portal.system.final"
+]
+
+overlay.mode = ["merge","overlay","portal","eden"]
+overlay.depth = "top"
+
+overlay.output = "WELT.overlay.final"
+overlay.state  = "active"

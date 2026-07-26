@@ -1,0 +1,62 @@
+[port.link]
+version = 1.0
+type = "link-core"
+zero = 0
+
+link.rule = "Verbindet DE-Module logisch, erstellt Link-Routen und verwaltet interne Modulpfade"
+
+link.bind.pq      = "port.PQ0"
+link.bind.ex      = "PQ.EX"
+link.bind.room    = "port.room"
+link.bind.matrix  = "port.matrix"
+link.bind.data    = "port.data"
+link.bind.status  = "port.status"
+link.bind.team    = "port.team"
+link.bind.screen  = "port.screen"
+link.bind.visuals = "port.visuals"
+link.bind.grid    = "port.9x9"
+link.bind.win0    = "port.win0"
+link.bind.user    = "port.user"
+link.bind.fit     = "port.fit"
+link.bind.fix     = "port.fix"
+link.bind.allign  = "port.allign"
+link.bind.capture = "port.capture"
+link.bind.build   = "port.build"
+link.bind.send    = "port.send"
+link.bind.score   = "port.score"
+link.bind.sync    = "port.sync"
+link.bind.core    = "port.core"
+link.bind.lan     = "port.lan"
+link.bind.api     = "port.api"
+link.bind.host    = "port.host"
+link.bind.boot    = "port.boot"
+
+link.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","route"]
+
+link.routes = [
+  "route-core",
+  "route-room",
+  "route-matrix",
+  "route-team",
+  "route-screen",
+  "route-visuals",
+  "route-grid",
+  "route-seq",
+  "route-system"
+]
+
+link.actions = [
+  "link-init",
+  "link-refresh",
+  "link-update",
+  "link-sync",
+  "link-route",
+  "link-connect",
+  "link-verify"
+]
+
+link.autolink = true
+link.interval = "3s"
+
+link.state = "active"
+

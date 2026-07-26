@@ -1,0 +1,67 @@
+[port.capture]
+version = 1.0
+type = "capture-core"
+zero = 0
+
+capture.rule = "Erfasst DE-Systemdaten, Sequenzen, Vectoren, Zustände und Visuals in Echtzeit"
+
+capture.bind.pq      = "port.PQ0"
+capture.bind.ex      = "PQ.EX"
+capture.bind.room    = "port.room"
+capture.bind.matrix  = "port.matrix"
+capture.bind.data    = "port.data"
+capture.bind.status  = "port.status"
+capture.bind.team    = "port.team"
+capture.bind.screen  = "port.screen"
+capture.bind.visuals = "port.visuals"
+capture.bind.grid    = "port.9x9"
+capture.bind.win0    = "port.win0"
+capture.bind.user    = "port.user"
+capture.bind.fit     = "port.fit"
+capture.bind.fix     = "port.fix"
+capture.bind.allign  = "port.allign"
+
+capture.mode = ["auto","manual","seq","vector","zone","state","visual","team","core"]
+
+capture.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+capture.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+capture.actions = [
+  "capture-core",
+  "capture-seq",
+  "capture-vector",
+  "capture-zone",
+  "capture-room",
+  "capture-matrix",
+  "capture-team",
+  "capture-status",
+  "capture-screen",
+  "capture-visuals",
+  "capture-grid"
+]
+
+capture.autocap = true
+capture.interval = "1s"
+
+capture.state = "active"
+

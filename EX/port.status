@@ -1,0 +1,9 @@
+[port.status]
+version = 1.0
+type = "status"
+zero = 0
+
+status.rule = "Zeigt DE-Systemstatus"
+status.bind.ex   = "PQ.EX"
+status.bind.pq   = "port.PQ0"
+status.bind.room = "port.room"

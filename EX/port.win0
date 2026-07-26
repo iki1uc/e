@@ -1,0 +1,60 @@
+[port.win0]
+version = 1.0
+type = "window-instance"
+zero = 0
+
+win0.rule = "Primäre DE-Fensterinstanz für Core-Ansicht, Sequenzen und Systemstatus"
+
+win0.bind.win     = "port.win"
+win0.bind.screen  = "port.screen"
+win0.bind.room    = "port.room"
+win0.bind.matrix  = "port.matrix"
+win0.bind.data    = "port.data"
+win0.bind.status  = "port.status"
+win0.bind.team    = "port.team"
+win0.bind.pq      = "port.PQ0"
+win0.bind.ex      = "PQ.EX"
+win0.bind.visuals = "port.visuals"
+win0.bind.grid    = "port.9x9"
+
+win0.mode = ["core","seq","vector","zone","status","team","effects"]
+
+win0.layer.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state"
+]
+
+win0.layer.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize"
+]
+
+win0.layer.status = [
+  "system.active",
+  "team.state",
+  "seq.current",
+  "seq.progress",
+  "seq.end"
+]
+
+win0.effects = [
+  "fade-in",
+  "fade-out",
+  "pulse",
+  "highlight",
+  "wave",
+  "morph",
+  "transition-light"
+]
+
+win0.default.layer = "core"
+win0.state = "active"

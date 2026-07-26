@@ -1,0 +1,32 @@
+[port.team]
+version = 1.0
+type = "team-core"
+zero = 0
+
+team.rule = "Verwaltet Team-Instanzen, Rollen und Zustände im DE-System"
+
+team.default = "team0"
+
+team.roles = [
+  "lead",
+  "support",
+  "vector",
+  "room",
+  "seq",
+  "screen"
+]
+
+team.bind.pq     = "port.PQ0"
+team.bind.ex     = "PQ.EX"
+team.bind.room   = "port.room"
+team.bind.matrix = "port.matrix"
+team.bind.data   = "port.data"
+team.bind.screen = "port.screen"
+team.bind.status = "port.status"
+
+team.mode = ["auto","sync","seq","assign"]
+
+team.team0.lead    = "axis-X"
+team.team0.support = "vector-6d0"
+team.team0.zone    = "0-20"
+team.team0.state   = "active"

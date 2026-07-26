@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>DA‑Kernel · DE‑KI</title>
+
+<style>
+body {
+  background:#000;
+  color:#00ff00;
+  font-family:Consolas;
+  margin:0;
+  padding:20px;
+}
+
+h1 {
+  color:#00ff00;
+  margin-bottom:10px;
+}
+
+.block {
+  background:#001100;
+  border:1px solid #003300;
+  padding:15px;
+  margin-bottom:20px;
+}
+
+button {
+  background:#00ff00;
+  color:#000;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  margin-right:10px;
+}
+
+button:hover {
+  background:#33ff33;
+}
+</style>
+</head>
+
+<body>
+
+<h1>DA‑Kernel · DE‑KI</h1>
+
+<div class="block">
+  <h2>DE‑KI Daten</h2>
+  <p><b>GEN:</b> 4u</p>
+  <p><b>Vector:</b> 6d</p>
+  <p><b>Trigger:</b> C</p>
+  <p><b>Valid:</b> DE</p>
+  <p><b>Pfad:</b> D:/DE/</p>
+</div>
+
+<div class="block">
+  <h2>DE‑Pipeline</h2>
+  <pre id="pipelineBox">Noch keine Pipeline ausgeführt.</pre>
+  <button onclick="runPipeline()">Pipeline ausführen</button>
+  <button onclick="runQuadrat()">Quadrat‑Modus (DE²)</button>
+</div>
+
+<div class="block">
+  <h2>Routing</h2>
+  <p>SLI‑Layer: DE öffnet TR und EN</p>
+  <button onclick="route('TR')">→ TR‑Kernel</button>
+  <button onclick="route('EN')">→ EN‑Kernel</button>
+</div>
+
+<script>
+/* DE‑KI Objekt */
+const DE_KI = {
+  gen: "4u",
+  vector: "6d",
+  trigger: "C",
+  valid: ["DE"],
+  path: "D:/DE/"
+};
+
+/* DE‑Pipeline */
+function runPipeline(){
+  const pipeline = {
+    A:[1,1,2],
+    B:[0,1,2],
+    Pair:[[1,0],[1,1],[2,2]]
+  };
+
+  document.getElementById("pipelineBox").innerText =
+    JSON.stringify(pipeline, null, 2);
+}
+
+/* Quadrat‑Modus */
+function runQuadrat(){
+  const chain = ["4u","4u"];
+  document.getElementById("pipelineBox").innerText =
+    "Quadrat‑Modus ausgeführt:\n" + chain.join(" → ");
+}
+
+/* Routing */
+function route(target){
+  if(target === "TR") window.location.href = "BEN.html";
+  if(target === "EN") window.location.href = "NE.html";
+}
+</script>
+
+</body>
+</html>

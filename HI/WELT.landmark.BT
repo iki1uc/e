@@ -1,0 +1,11 @@
+[WELT.landmark.BT]
+version = 1.0
+type    = "welt-landmark"
+
+bt.name   = "Brandenburger Tor"
+bt.mode   = ["portal","overlay","eden"]
+bt.align  = "center"
+bt.depth  = "front"
+
+bt.output = "WELT.BT.final"
+bt.state  = "active"

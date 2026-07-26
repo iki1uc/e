@@ -1,0 +1,28 @@
+{
+  "ROOM": "NC.room",
+  "TYPE": "Neutral-Core",
+  "FUNCTION": {
+    "BALANCE": true,
+    "OPERATOR": true,
+    "ROUTING": true
+  },
+  "PQ": {
+    "TEAM": true,
+    "STATUS": "BALANCE",
+    "MASTER": 0,
+    "SLAVE": 0
+  },
+  "VECTOR": "9x9",
+  "TRIGGER": "N",
+  "LANG": ["DE", "TR", "EN"],
+  "STARGATE": {
+    "OPEN": true,
+    "MODE": "floor-minimal",
+    "LEVEL": "neutral"
+  },
+  "NC": {
+    "NC3x3": true,
+    "NC6e": true,
+    "NC9x9": true
+  }
+}

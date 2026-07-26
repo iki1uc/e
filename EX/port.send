@@ -1,0 +1,69 @@
+[port.build]
+version = 1.0
+type = "builder-core"
+zero = 0
+
+build.rule = "Erstellt, konstruiert und generiert DE-Systemmodule, Sequenzen, Visuals und Strukturen"
+
+build.bind.pq      = "port.PQ0"
+build.bind.ex      = "PQ.EX"
+build.bind.room    = "port.room"
+build.bind.matrix  = "port.matrix"
+build.bind.data    = "port.data"
+build.bind.status  = "port.status"
+build.bind.team    = "port.team"
+build.bind.screen  = "port.screen"
+build.bind.visuals = "port.visuals"
+build.bind.grid    = "port.9x9"
+build.bind.win0    = "port.win0"
+build.bind.user    = "port.user"
+build.bind.fit     = "port.fit"
+build.bind.fix     = "port.fix"
+build.bind.allign  = "port.allign"
+build.bind.capture = "port.capture"
+
+build.mode = ["auto","manual","seq","vector","zone","state","visual","team","core","structure"]
+
+build.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+build.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+build.actions = [
+  "build-core",
+  "build-seq",
+  "build-vector",
+  "build-zone",
+  "build-room",
+  "build-matrix",
+  "build-team",
+  "build-status",
+  "build-screen",
+  "build-visuals",
+  "build-grid",
+  "build-window",
+  "build-structure"
+]
+
+build.autobuild = true
+build.interval = "6s"
+
+build.state = "active"

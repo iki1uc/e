@@ -1,0 +1,24 @@
+{
+  "TMP": {
+    "WLOCH": {
+      "ACTIVE": true,
+      "CHANNEL": "neutral",
+      "VECTOR": "9x9"
+    },
+    "KANAL": {
+      "IN": true,
+      "OUT": true,
+      "EDIT": true
+    },
+    "GATE": {
+      "OPEN": true,
+      "MODE": "floor-minimal",
+      "TRIGGER": "N"
+    }
+  },
+  "PQ": {
+    "TEAM": true,
+    "STATUS": "BALANCE"
+  }
+}
+

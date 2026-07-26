@@ -1,0 +1,15 @@
+{
+  "ROOM": "NC.room",
+  "TYPE": "Neutral-Core",
+  "FUNCTION": {
+    "BALANCE": true,
+    "OPERATOR": true,
+    "ROUTING": true
+  },
+  "VECTOR": "9x9",
+  "TRIGGER": "N",
+  "PQ": {
+    "TEAM": true,
+    "STATUS": "BALANCE"
+  }
+}
