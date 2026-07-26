@@ -2,123 +2,80 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>ANKER – S01 · iki1uc</title>
+<title>e · EBENE · EDIT · ENGINE</title>
 
 <style>
-body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
-h1 { color:#0f0; letter-spacing:4px; margin-bottom:30px; }
-.block { background:#111; border:1px solid #333; padding:25px; margin-bottom:30px; border-radius:8px; }
-.title { font-size:22px; color:#6cf; margin-bottom:10px; }
-pre { background:#000; border-left:3px solid #6cf; padding:15px; margin-top:10px; white-space:pre-wrap; }
-a { color:#6cf; text-decoration:none; font-weight:bold; }
+  body { background:#000; color:#00ffff; font-family:Consolas; padding:20px; }
+  h1 { color:#33ccff; text-shadow:0 0 10px #00ffff; }
+  .panel { background:#111; border:1px solid #333; padding:15px; margin:20px 0; border-radius:8px; }
+  pre { background:#000; border:1px solid #333; padding:12px; border-radius:6px; white-space:pre-wrap; }
 </style>
 
-<!-- SYSTEM CORE MODULES -->
-<script src="../HH/cr/RESPO.core.js"></script>
-<script src="../HH/cr/AXI.core.js"></script>
-<script src="../HH/cr/TEM.core.js"></script>
-<script src="../HH/cr/RUN8.core.js"></script>
+<script>
+async function load(path){
+  try{
+    const r = await fetch("./" + path);
+    if(!r.ok) return null;
+    return await r.text();
+  }catch(e){
+    return null;
+  }
+}
 
-<!-- ID MODULES -->
-<script src="IDkoop.js"></script>
-<script src="IDneutral.js"></script>
-<script src="IDpook.js"></script>
+function vector(content){
+  return {
+    LEN: content.length,
+    LINES: content.split("\n").length,
+    STATE: content.includes("ERR") ? "kritisch" : "neutral"
+  };
+}
 
+function status(content){
+  if(!content) return "FEHLT";
+  if(content.includes("ERR")) return "ORANGE";
+  return "GRÜN";
+}
+
+async function start(){
+
+  const FILES = [
+    "e.room",
+    "EDIT.rom",
+    "EDIT.scan",
+    "EDIT.pipe",
+    "EDIT.state",
+    "README.md",
+    "id.html"
+  ];
+
+  const out = document.getElementById("out");
+
+  for(const f of FILES){
+    const content = await load(f);
+    const vec = vector(content || "");
+
+    const div = document.createElement("div");
+    div.className = "panel";
+    div.innerHTML = `
+      <h2>${f} — ${status(content)}</h2>
+      <pre>${content ? content.substring(0,300) : "FEHLT"}</pre>
+      <pre>
+Länge: ${vec.LEN}
+Zeilen: ${vec.LINES}
+Status: ${vec.STATE}
+      </pre>
+    `;
+    out.appendChild(div);
+  }
+}
+</script>
 </head>
 
-<body>
+<body onload="start()">
 
-<h1>ANKER – S01 · iki1uc</h1>
+<h1>e · EBENE · EDIT · ENGINE</h1>
 
-<!-- ACHSEN STATUS -->
-<div class="block">
-    <div class="title">Stabilisationsachse</div>
-    <p id="axis-status">Lade Achsen…</p>
-</div>
-
-<!-- IDENTITÄT -->
-<div class="block">
-    <div class="title">Identität</div>
-    <p>
-        <a href="id.html">→ ANKER‑Identität öffnen</a>
-    </p>
-    <pre id="id-status"></pre>
-</div>
-
-<!-- ACHSEN LISTE -->
-<div class="block">
-    <div class="title">Stabilisierte Achsen</div>
-    <pre id="axis-list"></pre>
-</div>
-
-<!-- RESPO STATUS -->
-<div class="block">
-    <div class="title">RESPO‑Status</div>
-    <pre id="respo-status"></pre>
-</div>
-
-<!-- SYSTEM STATUS -->
-<div class="block">
-    <div class="title">System‑Status</div>
-    <pre id="system-status"></pre>
-</div>
-
-<script>
-(async function () {
-
-    /* -------------------------------
-       ANKER DATEN LADEN
-    --------------------------------*/
-    const anker = await fetch("ANKER.json").then(r => r.json()).catch(() => null);
-    const raw = await fetch("ANKER.raw").then(r => r.text()).catch(() => "");
-
-    document.getElementById("axis-list").innerText = raw || "Keine Achsen gefunden";
-
-
-    /* -------------------------------
-       AXI ENGINE
-    --------------------------------*/
-    const axi = AXI_CORE();
-    document.getElementById("axis-status").innerText =
-        axi ? "Achsen stabil" : "Achsenfehler";
-
-
-    /* -------------------------------
-       RESPO ENGINE
-    --------------------------------*/
-    const respo = RESPO_CORE(anker || {});
-    document.getElementById("respo-status").innerText =
-        `Score: ${respo.score}\nStatus: ${respo.ok ? "STABIL" : "KRITISCH"}`;
-
-
-    /* -------------------------------
-       ID MODUS ERKENNEN
-    --------------------------------*/
-    let idMode = "neutral";
-    if (ID_KOOP?.active) idMode = "koop";
-    if (ID_POOK?.active) idMode = "pook";
-
-    const idMap = {
-        koop: ID_KOOP,
-        neutral: ID_NEUTRAL,
-        pook: ID_POOK
-    };
-
-    document.getElementById("id-status").innerText =
-        `Modus: ${idMode.toUpperCase()}\nInfo: ${idMap[idMode].info()}`;
-
-
-    /* -------------------------------
-       SYSTEM STATUS
-    --------------------------------*/
-    const tem = TEM_CORE();
-    const run8 = RUN8();
-
-    document.getElementById("system-status").innerText =
-        `Zeit: ${tem.timestamp}\nKernel: ${run8.run}\nSystem: OK`;
-
-})();
-</script>
+<div id="out"></div>
 
 </body>
 </html>
