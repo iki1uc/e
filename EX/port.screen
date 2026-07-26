@@ -1,8 +1,0 @@
-[port.screen]
-version = 1.0
-type = "display"
-zero = 0
-
-screen.rule = "Zeigt DE-Systemzustände an"
-screen.bind.matrix = "port.matrix"
-screen.bind.room   = "port.room"

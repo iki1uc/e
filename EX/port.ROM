@@ -1,9 +1,0 @@
-[port.ROM]
-version = 1.0
-type = "memory"
-zero = 0
-
-rom.rule = "Speichert DE-Systemzustände"
-
-rom.store = ["axis","vector","zone","title","seq"]
-rom.bind.data = "port.data"
