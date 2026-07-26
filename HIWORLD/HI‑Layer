@@ -1,0 +1,30 @@
+[HI.layer]
+version = 1.0
+type = "hi-core"
+zero = 0
+
+hi.name      = "DE.HI"
+hi.title     = "High Interface Layer"
+hi.mode      = ["screen","portal","eden","visual","hib"]
+
+hi.bind.room   = "screen.room"
+hi.bind.visual = "port.visuals"
+hi.bind.portal = "EDEN.portal.system"
+hi.bind.glyphs = "EDEN.element.glyphs"
+hi.bind.crown  = "EDEN.portal.crown"
+hi.bind.cube   = "EDEN.cube.holo"
+hi.bind.rune   = "EDEN.rune.energy"
+
+hi.pipeline = [
+  "eden.element.final",
+  "eden.crown.final",
+  "eden.cube.final",
+  "eden.rune.final",
+  "eden.portal.system.final",
+  "screen.room.final"
+]
+
+hi.render.mode = ["merge","sync","animate","portal","glyph","cube","rune"]
+
+hi.output      = "HI.layer.final"
+hi.state       = "active"

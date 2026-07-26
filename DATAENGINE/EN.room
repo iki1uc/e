@@ -1,0 +1,32 @@
+{
+  "ROOM": "DE.room",
+  "TMP": {
+    "WLOCH": {
+      "ACTIVE": true,
+      "CHANNEL": "root",
+      "VECTOR": "6d"
+    },
+    "KANAL": {
+      "IN": true,
+      "OUT": true,
+      "EDIT": true
+    },
+    "GATE": {
+      "OPEN": true,
+      "MODE": "floor-minimal",
+      "TRIGGER": "C"
+    }
+  },
+  "PQ": {
+    "TEAM": true,
+    "MASTER": 1,
+    "SLAVE": 15001,
+    "STATUS": "OK"
+  },
+  "NC": {
+    "NC3x3": true,
+    "NC6e": true,
+    "NC9x9": true
+  }
+}
+

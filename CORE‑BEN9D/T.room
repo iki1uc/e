@@ -1,0 +1,16 @@
+{
+  "ROOM": "TR.room",
+  "LANG": "Türkçe",
+  "VECTOR": "12e",
+  "TRIGGER": "X",
+  "PQ": {
+    "TEAM": true,
+    "MASTER": 2,
+    "SLAVE": 20002
+  },
+  "STARGATE": {
+    "OPEN": true,
+    "MODE": "floor-minimal"
+  }
+}
+

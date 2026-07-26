@@ -1,0 +1,37 @@
+// ------------------------------------------------------
+// DE.room Loader + Stargate Effekt
+// ------------------------------------------------------
+
+async function loadDERoom(){
+  return {
+    lang: ["Deutsch", "Türkçe", "English"],
+    room: "DE.room",
+    eden: true,
+    welt: true,
+    pq: "active",
+    gate: "floor-minimal"
+  };
+}
+
+function renderGate(){
+  const gate = document.createElement("div");
+  gate.style.width = "240px";
+  gate.style.height = "240px";
+  gate.style.borderRadius = "50%";
+  gate.style.border = "2px solid #00e0ff";
+  gate.style.boxShadow = "0 0 25px #00e0ff";
+  gate.style.opacity = "0.8";
+  gate.style.margin = "40px auto";
+  gate.style.transition = "0.4s ease";
+  gate.style.background = "radial-gradient(circle, rgba(0,224,255,0.2), rgba(0,0,0,0.8))";
+  document.body.appendChild(gate);
+}
+
+async function startDERoom(){
+  const de = await loadDERoom();
+  renderGate();
+  console.log("DE.room geladen:", de);
+}
+
+startDERoom();
+

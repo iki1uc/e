@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>BEN‑Kernel · TR‑KI</title>
+
+<style>
+body {
+  background:#000;
+  color:#ff0066;
+  font-family:Consolas;
+  margin:0;
+  padding:20px;
+}
+
+h1 {
+  color:#ff0066;
+  margin-bottom:10px;
+}
+
+.block {
+  background:#220011;
+  border:1px solid #550022;
+  padding:15px;
+  margin-bottom:20px;
+}
+
+button {
+  background:#ff0066;
+  color:#000;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  margin-right:10px;
+}
+
+button:hover {
+  background:#ff3388;
+}
+</style>
+</head>
+
+<body>
+
+<h1>BEN‑Kernel · TR‑KI</h1>
+
+<div class="block">
+  <h2>TR‑KI Daten</h2>
+  <p><b>GEN:</b> onu</p>
+  <p><b>Vector:</b> 6e</p>
+  <p><b>Trigger:</b> Z</p>
+  <p><b>Valid:</b> DE / TR</p>
+  <p><b>Pfad:</b> D:/TR/</p>
+</div>
+
+<div class="block">
+  <h2>TR‑Pipeline</h2>
+  <pre id="pipelineBox">Noch keine Pipeline ausgeführt.</pre>
+  <button onclick="runPipeline()">Pipeline ausführen</button>
+  <button onclick="runQuadrat()">Quadrat‑Modus (TR²)</button>
+</div>
+
+<div class="block">
+  <h2>Routing (über port.lan)</h2>
+  <p>SLI‑Layer: TR öffnet DE und EN</p>
+  <button onclick="route('DE')">→ DA‑Kernel (DE)</button>
+  <button onclick="route('EN')">→ NE‑Kernel (EN)</button>
+</div>
+
+<script>
+/* TR‑KI Objekt */
+const TR_KI = {
+  gen: "onu",
+  vector: "6e",
+  trigger: "Z",
+  valid: ["DE","TR"],
+  path: "D:/TR/"
+};
+
+/* TR‑Pipeline */
+function runPipeline(){
+  const pipeline = {
+    A:[3,3,4],
+    B:[2,3,4],
+    Pair:[[3,2],[3,3],[4,4]]
+  };
+
+  document.getElementById("pipelineBox").innerText =
+    JSON.stringify(pipeline, null, 2);
+}
+
+/* Quadrat‑Modus */
+function runQuadrat(){
+  const chain = ["onu","onu"];
+  document.getElementById("pipelineBox").innerText =
+    "Quadrat‑Modus ausgeführt:\n" + chain.join(" → ");
+}
+
+/* Routing über port.lan */
+function route(target){
+  if(target === "DE") window.location.href = "DA.html";
+  if(target === "EN") window.location.href = "NE.html";
+}
+</script>
+
+</body>
+</html>

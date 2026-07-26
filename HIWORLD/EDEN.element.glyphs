@@ -1,0 +1,15 @@
+[EDEN.element.glyphs]
+version = 1.0
+type = "eden-element"
+
+E1.element   = "water"
+D.element    = "fire"
+E2.element   = "ice"
+N.element    = "steam"
+
+glyph.mode   = ["animate","element","rune","float"]
+glyph.speed  = "0.8"
+glyph.align  = "center"
+glyph.size   = "mega"
+
+glyph.output = "eden.element.final"
