@@ -1,9 +1,35 @@
 {
-  "id": "e",
-  "layer": "EBENE",
-  "type": "EDIT-ENGINE",
-  "version": "1.0",
-  "identity": "e-core",
-  "signature": "plop-fade-null-next"
-}
+  "id": "E",
+  "identity": {
+    "core": "e-0",
+    "type": "EBENE-EDIT-ENGINE",
+    "mode": "SCAN",
+    "signature": "plop-fade-null-next",
+    "autogramm": true,
+    "respo": true
+  },
 
+  "cluster": [
+    "CORE-X6D",
+    "CORE-NE6D",
+    "CORE-BEN9D",
+    "DATA",
+    "PORTENGINE",
+    "HDFCORE",
+    "HIWORLD",
+    "XENGINEIX",
+    "XENGINEXI",
+    "USE-UI"
+  ],
+
+  "lan": "EBENE",
+  "nc": "NC6",
+
+  "status": {
+    "active": true,
+    "scan": true,
+    "movement": true,
+    "signal": true,
+    "extend": true
+  }
+}
