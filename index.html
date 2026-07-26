@@ -43,15 +43,87 @@
 <script type="module">
 
 // ---------------------------------------------------------
-// 1. MODULE LADEN (ALLE 4 + Fehler + Scan + Signal)
+// 0. E ROOM (IDENTITÄT)
 // ---------------------------------------------------------
-import { EError } from "./E/e.error.js";
-import { EMove } from "./E/e.move.js";
-import { EScan } from "./E/e.scan.js";
-import { ESignal } from "./E/e.signal.js";
+const eRoom = {
+  id: "E",
+  identity: "e-0",
+  signature: "plop-fade-null-next",
+  mode: "SCAN",
+  autogramm: true,
+  respo: true
+};
 
 // ---------------------------------------------------------
-// 2. E ENGINE
+// 1. FEHLER-ENGINE (ERWEITERT)
+// ---------------------------------------------------------
+const EError = {
+  scan(data) {
+    const errors = [];
+
+    // bekannte Fehler
+    if (data.includes("tmp.room")) errors.push("tmp.room");
+    if (data.includes("tmp,room")) errors.push("tmp,room");
+    if (data.includes("ghost.html")) errors.push("ghost.html");
+    if (data.includes("tmp-Matrix")) errors.push("tmp-Matrix");
+
+    // neue Fehler automatisch erkennen
+    if (data.includes("TMP.room")) errors.push("TMP.room");
+    if (data.includes("TMP")) errors.push("TMP*");
+
+    // generische Fehler
+    if (data.includes("error")) errors.push("error");
+    if (data.includes("fail")) errors.push("fail");
+
+    return errors;
+  }
+};
+
+// ---------------------------------------------------------
+// 2. AUTOGRAMM-BEWEGUNG (ERWEITERT)
+// ---------------------------------------------------------
+const EMove = {
+  cycle: ["plop", "fade", "null", "next", "plop"],
+  speed: 1600,
+
+  apply(element, state) {
+    element.className = "cluster " + state;
+  }
+};
+
+// ---------------------------------------------------------
+// 3. ECHT-SCAN (VERTIEFT)
+// ---------------------------------------------------------
+const EScan = {
+  async read(path) {
+    try {
+      const res = await fetch(path);
+      const text = await res.text();
+      return text;
+    } catch {
+      return "fail";
+    }
+  }
+};
+
+// ---------------------------------------------------------
+// 4. MELDESYSTEM (AUSGEBAUT)
+// ---------------------------------------------------------
+const ESignal = {
+  color(errors) {
+    if (errors.length === 0) return "green";
+    if (errors.length === 1) return "yellow";
+    if (errors.length > 1) return "red";
+  },
+
+  apply(element, color) {
+    element.classList.remove("green", "yellow", "red");
+    element.classList.add(color);
+  }
+};
+
+// ---------------------------------------------------------
+// 5. E ENGINE (ALLXALL)
 // ---------------------------------------------------------
 const E = {
   identity: 0,
@@ -74,18 +146,38 @@ const E = {
     const current = this.clusters[this.index];
     const element = document.getElementById(current);
 
-    // -----------------------------------------------------
-    // 3. ECHT-SCAN
-    // -----------------------------------------------------
+    // Echt-Scan
     const data = await EScan.read("/" + current);
 
-    // -----------------------------------------------------
-    // 4. FEHLER-ENGINE
-    // -----------------------------------------------------
+    // Fehler-Engine
     const errors = EError.scan(data);
 
-    // -----------------------------------------------------
-    // 5. MELDESYSTEM (rot/gelb/grün)
-    // -----------------------------------------------------
+    // Meldesystem
     const color = ESignal.color(errors);
-    ESignal.apply(element, color
+    ESignal.apply(element, color);
+
+    // Autogramm-Bewegung
+    EMove.apply(element, "plop");
+    setTimeout(() => EMove.apply(element, "fade"), 400);
+    setTimeout(() => EMove.apply(element, "null"), 800);
+
+    // Next + Identität
+    setTimeout(() => {
+      EMove.apply(element, "");
+      this.index = (this.index + 1) % this.clusters.length;
+
+      this.identity++;
+      eRoom.identity = "e-" + this.identity;
+
+      document.getElementById("identity").innerText =
+        "IDENTITY: " + eRoom.identity;
+
+      const next = this.clusters[this.index];
+      EMove.apply(document.getElementById(next), "plop");
+    }, 1200);
+  }
+};
+
+// ---------------------------------------------------------
+// 6. START
+// ------------------------------------------------
