@@ -5,31 +5,15 @@
 <title>E · EBENE · EDIT · ENGINE · ALLXALL</title>
 
 <style>
-  body {
-    background:#000;
-    color:#0f0;
-    font-family: monospace;
-    padding:20px;
-  }
-
-  .cluster {
-    padding:6px 0;
-    transition: opacity 0.4s ease;
-  }
-
+  body { background:#000; color:#0f0; font-family: monospace; padding:20px; }
+  .cluster { padding:6px 0; transition: opacity 0.4s ease; }
   .plop { opacity:1; color:#0f0; }
   .fade { opacity:0.3; }
   .null { opacity:0; }
-
   .green { color:#0f0; }
   .yellow { color:#ff0; }
   .red { color:#f00; }
-
-  #identity {
-    margin-bottom:20px;
-    font-size:18px;
-    color:#0ff;
-  }
+  #identity { margin-bottom:20px; font-size:18px; color:#0ff; }
 </style>
 </head>
 <body>
@@ -42,89 +26,11 @@
 
 <script type="module">
 
-// ---------------------------------------------------------
-// 0. E ROOM (IDENTITÄT)
-// ---------------------------------------------------------
-const eRoom = {
-  id: "E",
-  identity: "e-0",
-  signature: "plop-fade-null-next",
-  mode: "SCAN",
-  autogramm: true,
-  respo: true
-};
+import { EError } from "./E/e.error.js";
+import { EMove } from "./E/e.move.js";
+import { EScan } from "./E/e.scan.js";
+import { ESignal } from "./E/e.signal.js";
 
-// ---------------------------------------------------------
-// 1. FEHLER-ENGINE (ERWEITERT)
-// ---------------------------------------------------------
-const EError = {
-  scan(data) {
-    const errors = [];
-
-    // bekannte Fehler
-    if (data.includes("tmp.room")) errors.push("tmp.room");
-    if (data.includes("tmp,room")) errors.push("tmp,room");
-    if (data.includes("ghost.html")) errors.push("ghost.html");
-    if (data.includes("tmp-Matrix")) errors.push("tmp-Matrix");
-
-    // neue Fehler automatisch erkennen
-    if (data.includes("TMP.room")) errors.push("TMP.room");
-    if (data.includes("TMP")) errors.push("TMP*");
-
-    // generische Fehler
-    if (data.includes("error")) errors.push("error");
-    if (data.includes("fail")) errors.push("fail");
-
-    return errors;
-  }
-};
-
-// ---------------------------------------------------------
-// 2. AUTOGRAMM-BEWEGUNG (ERWEITERT)
-// ---------------------------------------------------------
-const EMove = {
-  cycle: ["plop", "fade", "null", "next", "plop"],
-  speed: 1600,
-
-  apply(element, state) {
-    element.className = "cluster " + state;
-  }
-};
-
-// ---------------------------------------------------------
-// 3. ECHT-SCAN (VERTIEFT)
-// ---------------------------------------------------------
-const EScan = {
-  async read(path) {
-    try {
-      const res = await fetch(path);
-      const text = await res.text();
-      return text;
-    } catch {
-      return "fail";
-    }
-  }
-};
-
-// ---------------------------------------------------------
-// 4. MELDESYSTEM (AUSGEBAUT)
-// ---------------------------------------------------------
-const ESignal = {
-  color(errors) {
-    if (errors.length === 0) return "green";
-    if (errors.length === 1) return "yellow";
-    if (errors.length > 1) return "red";
-  },
-
-  apply(element, color) {
-    element.classList.remove("green", "yellow", "red");
-    element.classList.add(color);
-  }
-};
-
-// ---------------------------------------------------------
-// 5. E ENGINE (ALLXALL)
-// ---------------------------------------------------------
 const E = {
   identity: 0,
   index: 0,
@@ -146,31 +52,22 @@ const E = {
     const current = this.clusters[this.index];
     const element = document.getElementById(current);
 
-    // Echt-Scan
-    const data = await EScan.read("/" + current);
+    const text = await EScan.read("/" + current);
+    const errors = EError.scan(text);
 
-    // Fehler-Engine
-    const errors = EError.scan(data);
-
-    // Meldesystem
     const color = ESignal.color(errors);
     ESignal.apply(element, color);
 
-    // Autogramm-Bewegung
     EMove.apply(element, "plop");
     setTimeout(() => EMove.apply(element, "fade"), 400);
     setTimeout(() => EMove.apply(element, "null"), 800);
 
-    // Next + Identität
     setTimeout(() => {
       EMove.apply(element, "");
       this.index = (this.index + 1) % this.clusters.length;
 
       this.identity++;
-      eRoom.identity = "e-" + this.identity;
-
-      document.getElementById("identity").innerText =
-        "IDENTITY: " + eRoom.identity;
+      document.getElementById("identity").innerText = "IDENTITY: e-" + this.identity;
 
       const next = this.clusters[this.index];
       EMove.apply(document.getElementById(next), "plop");
@@ -178,6 +75,13 @@ const E = {
   }
 };
 
-// ---------------------------------------------------------
-// 6. START
-// ------------------------------------------------
+setInterval(() => E.cycle(), EMove.speed);
+
+let html = "";
+E.clusters.forEach(c => html += `<div class='cluster' id='${c}'>${c}</div>`);
+document.getElementById("scan").innerHTML = html;
+
+</script>
+
+</body>
+</html>
