@@ -1,1 +1,9 @@
+{
+  "id": "e",
+  "layer": "EBENE",
+  "type": "EDIT-ENGINE",
+  "version": "1.0",
+  "identity": "e-core",
+  "signature": "plop-fade-null-next"
+}
 
