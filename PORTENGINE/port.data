@@ -1,0 +1,7 @@
+[port.data]
+version = 1.0
+type = "data"
+zero = 0
+
+data.rule = "DE-Datenpool für EX, PQ und MOVE"
+data.store = ["titles","vectors","zones","seq","room"]

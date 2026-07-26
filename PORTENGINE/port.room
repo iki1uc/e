@@ -1,0 +1,10 @@
+[port.room]
+version = 1.0
+type = "room"
+zero = 0
+
+room.core = "X.room.CORE"
+room.in   = "X.room.IN"
+room.out  = "X.room.OUT"
+
+room.rule = "DE-Raumstruktur für EX und PQ"

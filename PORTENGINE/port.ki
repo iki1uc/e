@@ -1,0 +1,90 @@
+[port.ki]
+version = 1.0
+type = "ki-core"
+zero = 0
+
+ki.rule = "KI-Kernmodul des DE-Systems: verarbeitet Logik, Muster, Sequenzen, Routing und KI-Flüsse"
+
+ki.bind.pq      = "port.PQ0"
+ki.bind.ex      = "PQ.EX"
+ki.bind.room    = "port.room"
+ki.bind.matrix  = "port.matrix"
+ki.bind.data    = "port.data"
+ki.bind.status  = "port.status"
+ki.bind.team    = "port.team"
+ki.bind.screen  = "port.screen"
+ki.bind.visuals = "port.visuals"
+ki.bind.grid    = "port.9x9"
+ki.bind.win0    = "port.win0"
+ki.bind.user    = "port.user"
+ki.bind.fit     = "port.fit"
+ki.bind.fix     = "port.fix"
+ki.bind.allign  = "port.allign"
+ki.bind.capture = "port.capture"
+ki.bind.build   = "port.build"
+ki.bind.send    = "port.send"
+ki.bind.score   = "port.score"
+ki.bind.sync    = "port.sync"
+ki.bind.core    = "port.core"
+ki.bind.lan     = "port.lan"
+ki.bind.api     = "port.api"
+ki.bind.host    = "port.host"
+ki.bind.boot    = "port.boot"
+ki.bind.link    = "port.link"
+ki.bind.setup   = "port.setup"
+ki.bind.net     = "port.net"
+ki.bind.node    = "port.node"
+ki.bind.chain   = "port.chain"
+ki.bind.master  = "port.master"
+
+ki.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","route","flow","node","chain","ki"]
+
+ki.types = [
+  "ki-core",
+  "ki-room",
+  "ki-matrix",
+  "ki-team",
+  "ki-screen",
+  "ki-visual",
+  "ki-grid",
+  "ki-seq",
+  "ki-system"
+]
+
+ki.flow = [
+  "ki-in",
+  "ki-out",
+  "ki-sync",
+  "ki-update",
+  "ki-route",
+  "ki-verify",
+  "ki-learn",
+  "ki-pattern"
+]
+
+ki.status = [
+  "ki.ready",
+  "ki.active",
+  "ki.idle",
+  "ki.error",
+  "ki.linked"
+]
+
+ki.actions = [
+  "ki-init",
+  "ki-load",
+  "ki-refresh",
+  "ki-update",
+  "ki-sync",
+  "ki-route",
+  "ki-connect",
+  "ki-pattern",
+  "ki-learn",
+  "ki-verify",
+  "ki-complete"
+]
+
+ki.autoki = true
+ki.interval = "3s"
+
+ki.state = "active"

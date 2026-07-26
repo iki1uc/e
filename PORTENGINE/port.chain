@@ -1,0 +1,84 @@
+[port.chain]
+version = 1.0
+type = "chain-core"
+zero = 0
+
+chain.rule = "Verkettet DE-Module, erstellt Funktionsketten, verwaltet Chain-Fluss und Chain-Synchronität"
+
+chain.bind.pq      = "port.PQ0"
+chain.bind.ex      = "PQ.EX"
+chain.bind.room    = "port.room"
+chain.bind.matrix  = "port.matrix"
+chain.bind.data    = "port.data"
+chain.bind.status  = "port.status"
+chain.bind.team    = "port.team"
+chain.bind.screen  = "port.screen"
+chain.bind.visuals = "port.visuals"
+chain.bind.grid    = "port.9x9"
+chain.bind.win0    = "port.win0"
+chain.bind.user    = "port.user"
+chain.bind.fit     = "port.fit"
+chain.bind.fix     = "port.fix"
+chain.bind.allign  = "port.allign"
+chain.bind.capture = "port.capture"
+chain.bind.build   = "port.build"
+chain.bind.send    = "port.send"
+chain.bind.score   = "port.score"
+chain.bind.sync    = "port.sync"
+chain.bind.core    = "port.core"
+chain.bind.lan     = "port.lan"
+chain.bind.api     = "port.api"
+chain.bind.host    = "port.host"
+chain.bind.boot    = "port.boot"
+chain.bind.link    = "port.link"
+chain.bind.setup   = "port.setup"
+chain.bind.net     = "port.net"
+chain.bind.node    = "port.node"
+
+chain.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","route","flow","chain"]
+
+chain.types = [
+  "chain-core",
+  "chain-room",
+  "chain-matrix",
+  "chain-team",
+  "chain-screen",
+  "chain-visual",
+  "chain-grid",
+  "chain-seq",
+  "chain-system"
+]
+
+chain.flow = [
+  "chain-in",
+  "chain-out",
+  "chain-sync",
+  "chain-update",
+  "chain-route",
+  "chain-verify"
+]
+
+chain.status = [
+  "chain.ready",
+  "chain.active",
+  "chain.idle",
+  "chain.error",
+  "chain.linked"
+]
+
+chain.actions = [
+  "chain-init",
+  "chain-create",
+  "chain-refresh",
+  "chain-update",
+  "chain-sync",
+  "chain-route",
+  "chain-connect",
+  "chain-verify",
+  "chain-complete"
+]
+
+chain.autochain = true
+chain.interval = "3s"
+
+chain.state = "active"

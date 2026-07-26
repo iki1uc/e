@@ -1,0 +1,62 @@
+[port.fit]
+version = 1.0
+type = "alignment-core"
+zero = 0
+
+fit.rule = "Richtet Achse, Vector, Zone, Sequenzen und Systemmodule korrekt aus und synchronisiert sie"
+
+fit.bind.pq      = "port.PQ0"
+fit.bind.ex      = "PQ.EX"
+fit.bind.room    = "port.room"
+fit.bind.matrix  = "port.matrix"
+fit.bind.data    = "port.data"
+fit.bind.status  = "port.status"
+fit.bind.team    = "port.team"
+fit.bind.screen  = "port.screen"
+fit.bind.visuals = "port.visuals"
+fit.bind.grid    = "port.9x9"
+fit.bind.win0    = "port.win0"
+fit.bind.user    = "port.user"
+
+fit.mode = ["auto","manual","seq","vector","zone","state","visual","team"]
+
+fit.align.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state"
+]
+
+fit.align.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+fit.correct = [
+  "realign-axis",
+  "realign-vector",
+  "realign-zone",
+  "realign-title",
+  "sync-room",
+  "sync-matrix",
+  "sync-team",
+  "sync-status",
+  "sync-screen",
+  "sync-visuals",
+  "sync-grid"
+]
+
+fit.autofit = true
+fit.interval = "4s"
+
+fit.state = "active"

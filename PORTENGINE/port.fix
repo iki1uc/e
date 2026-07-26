@@ -1,0 +1,58 @@
+[port.fix]
+version = 1.0
+type = "stabilizer"
+zero = 0
+
+fix.rule = "Erkennt, korrigiert und stabilisiert DE-Systemfehler, Zustände und Sequenzen"
+
+fix.bind.pq      = "port.PQ0"
+fix.bind.ex      = "PQ.EX"
+fix.bind.room    = "port.room"
+fix.bind.matrix  = "port.matrix"
+fix.bind.data    = "port.data"
+fix.bind.status  = "port.status"
+fix.bind.team    = "port.team"
+fix.bind.screen  = "port.screen"
+fix.bind.visuals = "port.visuals"
+fix.bind.grid    = "port.9x9"
+
+fix.mode = ["auto","manual","seq","vector","zone","state","visual"]
+
+fix.check.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state"
+]
+
+fix.check.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+fix.correct.actions = [
+  "reset-room",
+  "reset-matrix",
+  "reload-seq",
+  "restore-vector",
+  "restore-zone",
+  "sync-team",
+  "sync-status",
+  "refresh-screen",
+  "refresh-visuals"
+]
+
+fix.autofix = true
+fix.interval = "3s"
+
+fix.state = "active"

@@ -1,0 +1,69 @@
+[port.core]
+version = 1.0
+type = "core-engine"
+zero = 0
+
+core.rule = "Zentrale DE-Engine: verwaltet Achse, Vector, Zone, Titel, Sequenzen und Systemzustände"
+
+core.bind.pq      = "port.PQ0"
+core.bind.ex      = "PQ.EX"
+core.bind.room    = "port.room"
+core.bind.matrix  = "port.matrix"
+core.bind.data    = "port.data"
+core.bind.status  = "port.status"
+core.bind.team    = "port.team"
+core.bind.screen  = "port.screen"
+core.bind.visuals = "port.visuals"
+core.bind.grid    = "port.9x9"
+core.bind.win0    = "port.win0"
+core.bind.user    = "port.user"
+core.bind.fit     = "port.fit"
+core.bind.fix     = "port.fix"
+core.bind.allign  = "port.allign"
+core.bind.capture = "port.capture"
+core.bind.build   = "port.build"
+core.bind.send    = "port.send"
+core.bind.score   = "port.score"
+core.bind.sync    = "port.sync"
+
+core.mode = ["auto","manual","seq","vector","zone","state","team","visual","core"]
+
+core.values = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+core.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+core.actions = [
+  "core-init",
+  "core-update",
+  "core-refresh",
+  "core-realign",
+  "core-sync",
+  "core-capture",
+  "core-build",
+  "core-send",
+  "core-score"
+]
+
+core.autocore = true
+core.interval = "2s"
+
+core.state = "active"

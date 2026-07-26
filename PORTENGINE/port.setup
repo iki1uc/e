@@ -1,0 +1,64 @@
+
+[port.setup]
+version = 1.0
+type = "setup-core"
+zero = 0
+
+setup.rule = "Initialisiert DE-Systemkonfiguration, lädt Module, setzt Parameter und erstellt Startumgebung"
+
+setup.bind.pq      = "port.PQ0"
+setup.bind.ex      = "PQ.EX"
+setup.bind.room    = "port.room"
+setup.bind.matrix  = "port.matrix"
+setup.bind.data    = "port.data"
+setup.bind.status  = "port.status"
+setup.bind.team    = "port.team"
+setup.bind.screen  = "port.screen"
+setup.bind.visuals = "port.visuals"
+setup.bind.grid    = "port.9x9"
+setup.bind.win0    = "port.win0"
+setup.bind.user    = "port.user"
+setup.bind.fit     = "port.fit"
+setup.bind.fix     = "port.fix"
+setup.bind.allign  = "port.allign"
+setup.bind.capture = "port.capture"
+setup.bind.build   = "port.build"
+setup.bind.send    = "port.send"
+setup.bind.score   = "port.score"
+setup.bind.sync    = "port.sync"
+setup.bind.core    = "port.core"
+setup.bind.lan     = "port.lan"
+setup.bind.api     = "port.api"
+setup.bind.host    = "port.host"
+setup.bind.boot    = "port.boot"
+setup.bind.link    = "port.link"
+
+setup.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","init"]
+
+setup.sequence = [
+  "setup-init",
+  "setup-load-core",
+  "setup-load-modules",
+  "setup-load-room",
+  "setup-load-matrix",
+  "setup-load-team",
+  "setup-load-screen",
+  "setup-load-visuals",
+  "setup-load-grid",
+  "setup-verify",
+  "setup-complete"
+]
+
+setup.actions = [
+  "setup-start",
+  "setup-refresh",
+  "setup-update",
+  "setup-verify",
+  "setup-sync",
+  "setup-complete"
+]
+
+setup.autosetup = true
+setup.interval = "4s"
+
+setup.state = "active"

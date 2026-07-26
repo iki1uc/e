@@ -1,0 +1,79 @@
+[port.score]
+version = 1.0
+type = "score-core"
+zero = 0
+
+score.rule = "Berechnet, bewertet und protokolliert DE-Systemwerte, Sequenzfortschritt und Stabilität"
+
+score.bind.pq      = "port.PQ0"
+score.bind.ex      = "PQ.EX"
+score.bind.room    = "port.room"
+score.bind.matrix  = "port.matrix"
+score.bind.data    = "port.data"
+score.bind.status  = "port.status"
+score.bind.team    = "port.team"
+score.bind.screen  = "port.screen"
+score.bind.visuals = "port.visuals"
+score.bind.grid    = "port.9x9"
+score.bind.win0    = "port.win0"
+score.bind.user    = "port.user"
+score.bind.fit     = "port.fit"
+score.bind.fix     = "port.fix"
+score.bind.allign  = "port.allign"
+score.bind.capture = "port.capture"
+score.bind.build   = "port.build"
+score.bind.send    = "port.send"
+
+score.mode = ["auto","manual","seq","vector","zone","state","team","core","stability"]
+
+score.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+score.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+score.metrics = [
+  "core-stability",
+  "seq-stability",
+  "vector-accuracy",
+  "zone-accuracy",
+  "team-sync",
+  "matrix-sync",
+  "room-sync",
+  "visual-integrity"
+]
+
+score.actions = [
+  "score-core",
+  "score-seq",
+  "score-vector",
+  "score-zone",
+  "score-team",
+  "score-room",
+  "score-matrix",
+  "score-visuals",
+  "score-grid",
+  "score-system"
+]
+
+score.autoscore = true
+score.interval = "3s"
+
+score.state = "active"

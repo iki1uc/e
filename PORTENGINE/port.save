@@ -1,0 +1,44 @@
+[port.save]
+version = 1.0
+type = "storage"
+zero = 0
+
+save.rule = "Speichert DE-Systemdaten, Sequenzen und Zustände dauerhaft"
+
+save.bind.pq     = "port.PQ0"
+save.bind.ex     = "PQ.EX"
+save.bind.room   = "port.room"
+save.bind.matrix = "port.matrix"
+save.bind.data   = "port.data"
+save.bind.status = "port.status"
+save.bind.team   = "port.team"
+
+save.mode = ["auto","manual","seq","state","vector"]
+
+save.store.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "seq.current",
+  "seq.history",
+  "room.state",
+  "matrix.state",
+  "team.state"
+]
+
+save.store.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize"
+]
+
+save.autosave = true
+save.interval = "5s"
+
+save.state = "active"
+

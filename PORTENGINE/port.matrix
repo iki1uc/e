@@ -1,0 +1,11 @@
+[port.matrix]
+version = 1.0
+type = "matrix"
+zero = 0
+
+matrix.type = "9x9"
+matrix.zone = "0-20"
+matrix.axis = "X"
+matrix.vector = "6d0"
+
+matrix.rule = "DE-Epochenmatrix"

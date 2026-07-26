@@ -1,0 +1,22 @@
+[port.ai0]
+version = 1.0
+type = "ai-bind"
+zero = 0
+
+# Gedrehte Datenlage
+data.rotate = true
+data.anchor = "0"
+
+# Gedrehte Raumlage
+space.rotate = ["X","Y","Z"]
+space.anchor = 0
+
+# EX‑Reaktion
+ex.capture = "lage-drehung"
+ex.slot = "anwaerter0"
+
+# Bindung
+bind.matrix = "matrix9x9"
+bind.room   = "port.room"
+bind.ex     = "EX"
+

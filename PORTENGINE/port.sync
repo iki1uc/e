@@ -1,0 +1,72 @@
+[port.sync]
+version = 1.0
+type = "sync-core"
+zero = 0
+
+sync.rule = "Synchronisiert alle DE-Module, Sequenzen, Vectoren, Zonen und Systemzustände in Echtzeit"
+
+sync.bind.pq      = "port.PQ0"
+sync.bind.ex      = "PQ.EX"
+sync.bind.room    = "port.room"
+sync.bind.matrix  = "port.matrix"
+sync.bind.data    = "port.data"
+sync.bind.status  = "port.status"
+sync.bind.team    = "port.team"
+sync.bind.screen  = "port.screen"
+sync.bind.visuals = "port.visuals"
+sync.bind.grid    = "port.9x9"
+sync.bind.win0    = "port.win0"
+sync.bind.user    = "port.user"
+sync.bind.fit     = "port.fit"
+sync.bind.fix     = "port.fix"
+sync.bind.allign  = "port.allign"
+sync.bind.capture = "port.capture"
+sync.bind.build   = "port.build"
+sync.bind.send    = "port.send"
+sync.bind.score   = "port.score"
+
+sync.mode = ["auto","manual","seq","vector","zone","state","team","core","visual"]
+
+sync.core = [
+  "axis",
+  "vector",
+  "zone",
+  "title",
+  "room.state",
+  "matrix.state",
+  "team.state",
+  "seq.current"
+]
+
+sync.seq = [
+  "mirror-flag",
+  "drop",
+  "ripple",
+  "light-transition",
+  "event-horizon",
+  "morphont-rise",
+  "flag-stabilize",
+  "seq.progress",
+  "seq.end"
+]
+
+sync.actions = [
+  "sync-core",
+  "sync-seq",
+  "sync-vector",
+  "sync-zone",
+  "sync-room",
+  "sync-matrix",
+  "sync-team",
+  "sync-status",
+  "sync-screen",
+  "sync-visuals",
+  "sync-grid",
+  "sync-window",
+  "sync-system"
+]
+
+sync.autosync = true
+sync.interval = "2s"
+
+sync.state = "active"

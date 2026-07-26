@@ -1,0 +1,15 @@
+[port.PQ0]
+version = 1.0
+type = "vector-core"
+zero = 0
+
+pq.axis   = "X"
+pq.vector = "6d0"
+pq.zone   = "0-20"
+
+pq.rule = "Pflegt DE-Vectoren und erzeugt Titel"
+
+pq.bind.ex     = "PQ.EX"
+pq.bind.data   = "port.data"
+pq.bind.room   = "port.room"
+pq.bind.matrix = "port.matrix"

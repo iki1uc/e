@@ -1,0 +1,18 @@
+[tweak0]
+version = 1.0
+type = "opta-tweak"
+zero = 0
+
+# Tweak-Funktion (EN / 12e0)
+tweak.axis   = "Y"
+tweak.vector = "12e0"
+
+# Tweak-Bereich (EPOCHE)
+tweak.zone = [27,28,29, 36,37,38, 45,46,47]
+
+# Tweak-Regel
+tweak.rule = "Feinjustiert Score-relevante Zustände im EN-Feld"
+
+# Bindung
+tweak.bind = "port.room"
+

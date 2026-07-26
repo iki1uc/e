@@ -1,0 +1,8 @@
+[Morph.room]
+version = 1.0
+type = "morph-engine"
+zero = 0
+
+morph.rule = "Erzeugt DE-Morph-Sequenzen"
+morph.bind.ex   = "PQ.EX"
+morph.bind.room = "port.room"

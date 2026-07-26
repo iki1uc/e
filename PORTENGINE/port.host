@@ -1,0 +1,67 @@
+[port.host]
+version = 1.0
+type = "host-core"
+zero = 0
+
+host.rule = "Verwaltet DE-Hostumgebung, Systemlaufzeit, Modulregistrierung und interne Verbindungen"
+
+host.bind.pq      = "port.PQ0"
+host.bind.ex      = "PQ.EX"
+host.bind.room    = "port.room"
+host.bind.matrix  = "port.matrix"
+host.bind.data    = "port.data"
+host.bind.status  = "port.status"
+host.bind.team    = "port.team"
+host.bind.screen  = "port.screen"
+host.bind.visuals = "port.visuals"
+host.bind.grid    = "port.9x9"
+host.bind.win0    = "port.win0"
+host.bind.user    = "port.user"
+host.bind.fit     = "port.fit"
+host.bind.fix     = "port.fix"
+host.bind.allign  = "port.allign"
+host.bind.capture = "port.capture"
+host.bind.build   = "port.build"
+host.bind.send    = "port.send"
+host.bind.score   = "port.score"
+host.bind.sync    = "port.sync"
+host.bind.core    = "port.core"
+host.bind.lan     = "port.lan"
+host.bind.api     = "port.api"
+
+host.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system","runtime"]
+
+host.runtime = [
+  "host.start",
+  "host.stop",
+  "host.restart",
+  "host.refresh",
+  "host.register",
+  "host.connect",
+  "host.sync",
+  "host.update"
+]
+
+host.monitor = [
+  "runtime.state",
+  "runtime.load",
+  "runtime.modules",
+  "runtime.connections",
+  "runtime.errors"
+]
+
+host.actions = [
+  "host-init",
+  "host-boot",
+  "host-sync",
+  "host-update",
+  "host-reload",
+  "host-register",
+  "host-connect",
+  "host-system"
+]
+
+host.autohost = true
+host.interval = "4s"
+
+host.state = "active"

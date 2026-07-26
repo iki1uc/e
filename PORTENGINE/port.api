@@ -1,0 +1,71 @@
+[port.api]
+version = 1.0
+type = "api-core"
+zero = 0
+
+api.rule = "Stellt DE-Systemfunktionen über interne API-Endpunkte bereit und ermöglicht Modulkommunikation"
+
+api.bind.pq      = "port.PQ0"
+api.bind.ex      = "PQ.EX"
+api.bind.room    = "port.room"
+api.bind.matrix  = "port.matrix"
+api.bind.data    = "port.data"
+api.bind.status  = "port.status"
+api.bind.team    = "port.team"
+api.bind.screen  = "port.screen"
+api.bind.visuals = "port.visuals"
+api.bind.grid    = "port.9x9"
+api.bind.win0    = "port.win0"
+api.bind.user    = "port.user"
+api.bind.fit     = "port.fit"
+api.bind.fix     = "port.fix"
+api.bind.allign  = "port.allign"
+api.bind.capture = "port.capture"
+api.bind.build   = "port.build"
+api.bind.send    = "port.send"
+api.bind.score   = "port.score"
+api.bind.sync    = "port.sync"
+api.bind.core    = "port.core"
+api.bind.lan     = "port.lan"
+
+api.mode = ["auto","manual","seq","vector","zone","state","team","core","visual","grid","system"]
+
+api.endpoints.core = [
+  "get-axis",
+  "get-vector",
+  "get-zone",
+  "get-title",
+  "get-room-state",
+  "get-matrix-state",
+  "get-team-state",
+  "get-seq-current"
+]
+
+api.endpoints.seq = [
+  "get-mirror-flag",
+  "get-drop",
+  "get-ripple",
+  "get-light-transition",
+  "get-event-horizon",
+  "get-morphont-rise",
+  "get-flag-stabilize",
+  "get-seq-progress",
+  "get-seq-end"
+]
+
+api.actions = [
+  "api-sync",
+  "api-update",
+  "api-refresh",
+  "api-send",
+  "api-receive",
+  "api-core",
+  "api-grid",
+  "api-visual",
+  "api-system"
+]
+
+api.autoserve = true
+api.interval = "2s"
+
+api.state = "active"

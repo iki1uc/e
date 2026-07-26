@@ -1,0 +1,8 @@
+[grab0]
+version = 1.0
+type = "grab-kernel"
+zero = 0
+
+grab.rule = "Nimmt Auftrag auf und übergibt an status0"
+grab.bind = "status0"
+

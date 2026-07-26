@@ -1,0 +1,28 @@
+[port.visuals]
+version = 1.0
+type    = "visual-engine"
+zero    = 0
+
+visual.engine      = "DE.render.core"
+visual.mode        = ["portal","glyph","cube","rune","element","sync","animate"]
+visual.refresh     = "60fps"
+visual.quality     = "high"
+visual.depth       = "multi-layer"
+visual.pipeline    = "eden.portal.system.final"
+
+visual.bind.room   = "screen.room.final"
+visual.bind.hi     = "HI.layer.final"
+
+visual.bind.layers = [
+  "eden.element.final",
+  "eden.crown.final",
+  "eden.cube.final",
+  "eden.rune.final",
+  "eden.portal.system.final"
+]
+
+visual.sync.mode   = ["merge","pulse","rotate","flow"]
+visual.sync.speed  = "1.0"
+
+visual.output      = "visuals.final"
+visual.state       = "active"
