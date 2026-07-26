@@ -1,81 +1,44 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>e · EBENE · EDIT · ENGINE</title>
-
-<style>
-  body { background:#000; color:#00ffff; font-family:Consolas; padding:20px; }
-  h1 { color:#33ccff; text-shadow:0 0 10px #00ffff; }
-  .panel { background:#111; border:1px solid #333; padding:15px; margin:20px 0; border-radius:8px; }
-  pre { background:#000; border:1px solid #333; padding:12px; border-radius:6px; white-space:pre-wrap; }
-</style>
-
-<script>
-async function load(path){
-  try{
-    const r = await fetch("./" + path);
-    if(!r.ok) return null;
-    return await r.text();
-  }catch(e){
-    return null;
-  }
-}
-
-function vector(content){
-  return {
-    LEN: content.length,
-    LINES: content.split("\n").length,
-    STATE: content.includes("ERR") ? "kritisch" : "neutral"
-  };
-}
-
-function status(content){
-  if(!content) return "FEHLT";
-  if(content.includes("ERR")) return "ORANGE";
-  return "GRÜN";
-}
-
-async function start(){
-
-  const FILES = [
-    "e.room",
-    "EDIT.rom",
-    "EDIT.scan",
-    "EDIT.pipe",
-    "EDIT.state",
-    "README.md",
-    "id.html"
-  ];
-
-  const out = document.getElementById("out");
-
-  for(const f of FILES){
-    const content = await load(f);
-    const vec = vector(content || "");
-
-    const div = document.createElement("div");
-    div.className = "panel";
-    div.innerHTML = `
-      <h2>${f} — ${status(content)}</h2>
-      <pre>${content ? content.substring(0,300) : "FEHLT"}</pre>
-      <pre>
-Länge: ${vec.LEN}
-Zeilen: ${vec.LINES}
-Status: ${vec.STATE}
-      </pre>
-    `;
-    out.appendChild(div);
-  }
-}
-</script>
+  <meta charset="UTF-8">
+  <title>e · EBENE · EDIT · ENGINE</title>
+  <style>
+    body { font-family: monospace; background:#000; color:#0f0; padding:20px; }
+    .ok { color:#0f0; }
+    .err { color:#f00; }
+    .scan { margin-top:20px; }
+  </style>
 </head>
-
-<body onload="start()">
+<body>
 
 <h1>e · EBENE · EDIT · ENGINE</h1>
 
-<div id="out"></div>
+<h2>Cluster‑Scan</h2>
+<div id="scan"></div>
+
+<script>
+const clusters = [
+  "CORE-X6D",
+  "CORE-NE6D",
+  "CORE-BEN9D",
+  "DATA",
+  "PORTENGINE",
+  "HDFCORE",
+  "HIWORLD",
+  "XENGINEIX",
+  "XENGINEXI",
+  "USE-UI"
+];
+
+let html = "";
+
+clusters.forEach(c => {
+  html += `<div class="ok">${c} ✔</div>`;
+});
+
+document.getElementById("scan").innerHTML = html;
+</script>
 
 </body>
 </html>
