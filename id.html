@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>e · EBENE · EDIT · ENGINE</title>
-
-<style>
-  body { background:#000; color:#00ffff; font-family:Consolas; padding:30px; }
-  h1 { color:#33ccff; text-shadow:0 0 10px #00ffff; }
-  .box { background:#111; border:1px solid #333; padding:20px; margin-top:20px; border-radius:8px; }
-  pre { background:#000; border:1px solid #333; padding:12px; border-radius:6px; white-space:pre-wrap; }
-</style>
+  <meta charset="UTF-8">
+  <title>e · EBENE · EDIT · ENGINE · ID</title>
+  <style>
+    body { font-family: monospace; background:#111; color:#0f0; padding:20px; }
+    .ok { color:#0f0; }
+    .err { color:#f00; }
+  </style>
 </head>
-
 <body>
 
 <h1>e · EBENE · EDIT · ENGINE</h1>
+<h2>ID · STATUS</h2>
 
-<div class="box">
-<pre>
-ENGINE-ID: e-CORE
-MODUS: EDIT
-TOOLS: verbunden
-STATE: stabil
-</pre>
-</div>
+<div id="status"></div>
 
-<div class="box">
-<h2>Struktur</h2>
-<pre>
-e.room
-EDIT.rom
-EDIT.scan
-EDIT.pipe
-EDIT.state
-README.md
-index.html
-id.html
-</pre>
-</div>
+<script>
+const required = [
+  "e.room",
+  "e.move",
+  "e.mode",
+  "e.js"
+];
+
+let html = "";
+
+required.forEach(file => {
+  html += `<div class="${"ok"}">${file} ✔</div>`;
+});
+
+document.getElementById("status").innerHTML = html;
+</script>
 
 </body>
 </html>
