@@ -1,28 +1,25 @@
-# ANKER – Stabilisationsachse · iki1uc
+# e · EBENE · EDIT · ENGINE
 
-## Zweck
-ANKER ist die Stabilisationsachse des iki1uc‑Systems.
-Es hält die Achsen IQ, QI, EVO, UPD, UPG, BIOS und CALC im korrekten Verhältnis.
+Der Ordner **e/** ist die zentrale Edit‑Ebene des iki1uc‑Systems.
+Hier arbeiten alle Tools, Achsen, Räume und Cluster zusammen.
 
-## Struktur
-- NAME: ANKER
-- ID: A01
-- Station: S01
-- Dimension: D4
-- Modus: erabel (neutral, operation möglich)
+e ist die **Master‑Engine**, die folgende Module verbinden kann:
 
-## Rolle
-ANKER stabilisiert, ohne selbst aktiv zu berechnen oder zu steuern.
-Es ist die neutrale Achse zwischen AXI, 6d und API.
+- WELT (Portal)
+- ORT (RESPO)
+- P (Palais)
+- ANIME (81‑System)
+- g (NC‑Commands)
+- i (RAW‑Ebene)
+- TMP‑Cluster
+- NC²‑Routing
+- ALL‑Hyperraum
+- VECTOR‑Moleküle
 
-## Bindungen
-- AXI
-- 6d
-- 360
-- 100
-- 213 (REAL)
-- API
+e ist vollständig unabhängig und kann jedes Modul laden,
+scannen, darstellen, verbinden und tweaken.
 
-## Status
-STATE = STABIL  
-READY = 100%
+---
+
+## Inhalt
+
