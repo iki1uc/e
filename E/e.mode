@@ -1,1 +1,8 @@
+{
+  "mode": "SCAN",
+  "auto": true,
+  "display": "cluster",
+  "identity_increment": true,
+  "errors": "visible"
+}
 
