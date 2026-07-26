@@ -1,11 +1,24 @@
 export const EError = {
-  scan(cluster) {
+  scan(text) {
     const errors = [];
 
-    if (cluster.includes("tmp.room")) errors.push("tmp.room");
-    if (cluster.includes("tmp,room")) errors.push("tmp,room");
-    if (cluster.includes("ghost.html")) errors.push("ghost.html");
-    if (cluster.includes("tmp-Matrix")) errors.push("tmp-Matrix");
+    if (!text) return ["fail"];
+
+    const lower = text.toLowerCase();
+
+    const patterns = [
+      "tmp.room",
+      "tmp,room",
+      "ghost.html",
+      "tmp-matrix",
+      "tmp",
+      "error",
+      "fail"
+    ];
+
+    patterns.forEach(p => {
+      if (lower.includes(p)) errors.push(p);
+    });
 
     return errors;
   }
